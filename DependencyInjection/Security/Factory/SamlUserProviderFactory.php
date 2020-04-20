@@ -12,6 +12,18 @@ class SamlUserProviderFactory implements UserProviderFactoryInterface
 {
     protected $defaultRoles = array('ROLE_USER');
 
+    private $key;
+    private $providerId;
+
+    /**
+     * SamlUserProviderFactory constructor.
+     */
+    public function __construct(string $key, string $providerId)
+    {
+        $this->key = $key;
+        $this->providerId = $providerId;
+    }
+
     public function create(ContainerBuilder $container, $id, $config)
     {
         $definitionClassname = $this->getDefinitionClassname();

@@ -16,7 +16,7 @@ class HslavichOneloginSamlBundle extends Bundle
 
         $extension = $container->getExtension('security');
         $extension->addSecurityListenerFactory(new SamlFactory());
-        $extension->addUserProviderFactory(new SamlUserProviderFactory());
+        $extension->addUserProviderFactory(new SamlUserProviderFactory('saml_user', 'hslavich_onelogin_saml.user_provider'));
 
         $container->addCompilerPass(new SecurityCompilerPass());
     }
