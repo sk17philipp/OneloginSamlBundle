@@ -31,6 +31,7 @@ class SamlUserProviderFactory implements UserProviderFactoryInterface
             ->setDefinition($id, new $definitionClassname('hslavich_onelogin_saml.user_provider'))
             ->addArgument($config['user_class'])
             ->addArgument($config['default_roles'])
+            ->addArgument($config['property'])
         ;
     }
 
@@ -48,6 +49,7 @@ class SamlUserProviderFactory implements UserProviderFactoryInterface
                     ->prototype('scalar')->end()
                     ->defaultValue($this->defaultRoles)
                 ->end()
+                ->ScalarNode('property')->end()
             ->end()
         ;
     }
